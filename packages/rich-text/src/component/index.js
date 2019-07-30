@@ -891,7 +891,7 @@ class RichText extends Component {
 		// prevent Editable component updates.
 		const key = Tagname;
 
-		const Content = ( props ) => (
+		const EditableWrapper = ( props ) => (
 			<Editable
 				{ ...props }
 				tagName={ Tagname }
@@ -933,9 +933,9 @@ class RichText extends Component {
 					isSelected,
 					value: this.record,
 					onChange: this.onChange,
-					children: Content,
+					Editable: EditableWrapper,
 				} ) }
-				{ ! children && <Content /> }
+				{ ! children && <EditableWrapper /> }
 			</>
 		);
 	}
