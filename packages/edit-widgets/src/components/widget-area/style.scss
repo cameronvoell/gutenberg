@@ -5,3 +5,7 @@
 .edit-widgets-main-block-list {
 	padding-top: $block-toolbar-height + 2 * $grid-size;
 }
+
+.edit-widgets-main-block-list > .block-list-appender {
+	padding-top: $panel-padding;
+}
