@@ -83,6 +83,8 @@ class ImageEdit extends React.Component {
 		this.onImagePressed = this.onImagePressed.bind( this );
 		this.onClearSettings = this.onClearSettings.bind( this );
 		this.onFocusCaption = this.onFocusCaption.bind( this );
+		this.onShowImageOptions = this.onShowImageOptions.bind( this );
+		this.onHideImageOptions = this.onHideImageOptions.bind( this );
 	}
 
 	componentDidMount() {
@@ -184,6 +186,14 @@ class ImageEdit extends React.Component {
 		} );
 	}
 
+	onShowImageOptions() {
+		this.setState( { showImageOptions: true } );
+	}
+
+	onHideImageOptions() {
+		this.setState( { showImageOptions: false } );
+	}
+
 	onSetSizeSlug( sizeSlug ) {
 		this.props.setAttributes( {
 			sizeSlug,
@@ -253,6 +263,7 @@ class ImageEdit extends React.Component {
 				isVisible={ this.state.showSettings }
 				onClose={ onImageSettingsClose }
 				hideHeader
+				disableSwipe={ this.state.showImageOptions }
 			>
 				<BottomSheet.Cell
 					icon={ 'admin-links' }
@@ -270,6 +281,8 @@ class ImageEdit extends React.Component {
 						hideCancelButton
 						icon={ 'editor-expand' }
 						label={ __( 'Size' ) }
+						onModalShow={ this.onShowImageOptions }
+						onModalHide={ this.onHideImageOptions }
 						value={ sizeOptionLabels[ sizeSlug || DEFAULT_SIZE_SLUG ] }
 						onChangeValue={ ( newValue ) => this.onSetSizeSlug( newValue ) }
 						options={ sizeOptions }

@@ -135,9 +135,10 @@ class BottomSheet extends Component {
 				backdropOpacity={ 0.2 }
 				onBackdropPress={ this.props.onClose }
 				onBackButtonPress={ this.props.onClose }
-				onSwipe={ this.props.onClose }
+				onSwipe={ this.props.disableSwipe ? undefined : this.props.onClose }
 				onDismiss={ Platform.OS === 'ios' ? this.props.onDismiss : undefined }
-				onModalHide={ Platform.OS === 'android' ? this.props.onDismiss : undefined }
+				onModalHide={ Platform.OS === 'android' ? this.props.onModalHide : undefined }
+				onModalShow={ this.props.onModalShow }
 				swipeDirection="down"
 				onMoveShouldSetResponder={ panResponder.panHandlers.onMoveShouldSetResponder }
 				onMoveShouldSetResponderCapture={ panResponder.panHandlers.onMoveShouldSetResponderCapture }

@@ -46,6 +46,9 @@ export default class Picker extends Component {
 				onClose={ this.onClose }
 				style={ { paddingBottom: 20 } }
 				hideHeader
+				onModalShow={ this.props.onModalShow }
+				onModalHide={ this.props.onModalHide }
+				disableSwipe={ false }
 			>
 				<View>
 					{ this.props.options.map( ( option, index ) =>

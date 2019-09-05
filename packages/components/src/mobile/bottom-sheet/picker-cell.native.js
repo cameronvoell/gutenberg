@@ -9,6 +9,8 @@ export default function BottomSheetPickerCell( props ) {
 		options,
 		hideCancelButton,
 		onChangeValue,
+		onModalShow,
+		onModalHide,
 		...cellProps
 	} = props;
 
@@ -26,6 +28,8 @@ export default function BottomSheetPickerCell( props ) {
 		<Cell onPress={ onCellPress } editable={ false } { ...cellProps } >
 			<Picker
 				hideCancelButton={ hideCancelButton }
+				onModalShow={ onModalShow }
+				onModalHide={ onModalHide }
 				ref={ ( instance ) => picker = instance }
 				options={ options }
 				onChange={ onChange }
