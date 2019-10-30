@@ -2,12 +2,13 @@
  * External dependencies
  */
 import React from 'react';
-import { View, ImageBackground, Text, TouchableWithoutFeedback, Dimensions } from 'react-native';
+import { View, ImageBackground, Text, TouchableWithoutFeedback, Dimensions, Platform } from 'react-native';
 import {
 	requestMediaImport,
 	mediaUploadSync,
 	requestImageFailedRetryDialog,
 	requestImageUploadCancelDialog,
+	requestImageFullscreenPreview,
 } from 'react-native-gutenberg-bridge';
 import { isEmpty, map } from 'lodash';
 
@@ -142,11 +143,14 @@ export class ImageEdit extends React.Component {
 			requestImageFailedRetryDialog( attributes.id );
 		}
 		// eslint-disable-next-line no-undef
-		const enableFullscreen = __DEV__;
+		const enableReactNativeFullscreen = __DEV__ && Platform.OS === 'ios';
 		this.setState( {
 			isCaptionSelected: false,
-			showImageViewer: enableFullscreen && true,
+			showImageViewer: enableReactNativeFullscreen && true,
 		} );
+		if ( Platform.OS === 'android' ) {
+			requestImageFullscreenPreview( attributes.id, attributes.url );
+		}
 	}
 
 	updateMediaProgress( payload ) {
