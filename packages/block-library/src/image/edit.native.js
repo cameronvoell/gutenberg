@@ -144,7 +144,7 @@ export class ImageEdit extends React.Component {
 			isCaptionSelected: false,
 		} );
 		if ( Platform.OS === 'android' ) {
-			requestImageFullscreenPreview( attributes.id, attributes.url );
+			requestImageFullscreenPreview(attributes.url );
 		}
 	}
 
