@@ -16,7 +16,6 @@ import { isEmpty, map } from 'lodash';
  * WordPress dependencies
  */
 import {
-	ImageViewer,
 	TextControl,
 	ToggleControl,
 	SelectControl,
@@ -77,7 +76,6 @@ export class ImageEdit extends React.Component {
 
 		this.state = {
 			isCaptionSelected: false,
-			showImageViewer: false,
 		};
 
 		this.finishMediaUploadWithSuccess = this.finishMediaUploadWithSuccess.bind( this );
@@ -142,11 +140,8 @@ export class ImageEdit extends React.Component {
 		} else if ( attributes.id && ! isURL( attributes.url ) ) {
 			requestImageFailedRetryDialog( attributes.id );
 		}
-		// eslint-disable-next-line no-undef
-		const enableReactNativeFullscreen = __DEV__ && Platform.OS === 'ios';
 		this.setState( {
 			isCaptionSelected: false,
-			showImageViewer: enableReactNativeFullscreen && true,
 		} );
 		if ( Platform.OS === 'android' ) {
 			requestImageFullscreenPreview( attributes.id, attributes.url );
@@ -257,10 +252,6 @@ export class ImageEdit extends React.Component {
 
 		const actions = [ { label: __( 'Clear All Settings' ), onPress: this.onClearSettings } ];
 
-		const onImageViewerClose = () => {
-			this.setState( { showImageViewer: false } );
-		};
-
 		const getToolbarEditButton = ( open ) => (
 			<BlockControls>
 				<Toolbar>
@@ -320,14 +311,6 @@ export class ImageEdit extends React.Component {
 			</InspectorControls>
 		);
 
-		const getImageViewer = () => (
-			<ImageViewer
-				isVisible={ this.state.showImageViewer }
-				onClose={ onImageViewerClose }
-				url={ url }
-			/>
-		);
-
 		if ( ! url ) {
 			return (
 				<View style={ { flex: 1 } } >
@@ -350,7 +333,6 @@ export class ImageEdit extends React.Component {
 		};
 
 		const imageContainerHeight = Dimensions.get( 'window' ).width / IMAGE_ASPECT_RATIO;
-
 		const getImageComponent = ( openMediaOptions, getMediaOptions ) => (
 			<TouchableWithoutFeedback
 				accessible={ ! isSelected }
@@ -360,7 +342,6 @@ export class ImageEdit extends React.Component {
 			>
 				<View style={ { flex: 1 } }>
 					{ getInspectorControls() }
-					{ getImageViewer() }
 					{ getMediaOptions() }
 					{ ( ! this.state.isCaptionSelected ) &&
 						getToolbarEditButton( openMediaOptions )
