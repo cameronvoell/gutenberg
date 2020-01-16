@@ -400,10 +400,8 @@ export class ImageEdit extends React.Component {
 						accessible={ true }
 						accessibilityLabelCreator={ ( caption ) =>
 							isEmpty( caption ) ?
-							/* translators: accessibility text. Empty image caption. */
 								( 'Image caption. Empty' ) :
 								sprintf(
-								/* translators: accessibility text. %s: image caption. */
 									__( 'Image caption. %s' ),
 									caption )
 						}
