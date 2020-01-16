@@ -8,8 +8,6 @@ import {
 } from 'react-native-gutenberg-bridge';
 import { isEmpty, map } from 'lodash';
 
-/** hello
- */
 import {
 	TextControl,
 	ToggleControl,
