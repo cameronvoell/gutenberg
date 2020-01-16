@@ -1,6 +1,3 @@
-/**
- * External dependencies
- */
 import React from 'react';
 import { View, ImageBackground, Text, TouchableWithoutFeedback, Dimensions } from 'react-native';
 import {
