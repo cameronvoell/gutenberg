@@ -400,15 +400,13 @@ export class ImageEdit extends React.Component {
 						accessible={ true }
 						accessibilityLabelCreator={ ( caption ) =>
 							isEmpty( caption ) ?
-							/* translators: accessibility text. Empty image caption. */
 								( 'Image caption. Empty' ) :
 								sprintf(
-								/* translators: accessibility text. %s: image caption. */
 									__( 'Image caption. %s' ),
 									caption )
 						}
 						onFocus={ this.onFocusCaption }
-						onBlur={ this.props.onBlur } // always assign onBlur as props
+						onBlur={ this.props.onBlur } 
 					/>
 				</View>
 			</TouchableWithoutFeedback>
