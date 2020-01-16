@@ -406,7 +406,7 @@ export class ImageEdit extends React.Component {
 									caption )
 						}
 						onFocus={ this.onFocusCaption }
-						onBlur={ this.props.onBlur } // always assign onBlur as props
+						onBlur={ this.props.onBlur } 
 					/>
 				</View>
 			</TouchableWithoutFeedback>
