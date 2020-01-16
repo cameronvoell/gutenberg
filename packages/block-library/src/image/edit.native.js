@@ -12,7 +12,6 @@ import {
 import { isEmpty, map } from 'lodash';
 
 /**
- * WordPress dependencies
  */
 import {
 	TextControl,
