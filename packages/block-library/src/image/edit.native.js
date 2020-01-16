@@ -65,7 +65,6 @@ const sizeOptionLabels = {
 };
 const sizeOptions = map( sizeOptionLabels, ( label, option ) => ( { value: option, label } ) );
 
-// Default Image ratio 4:3
 const IMAGE_ASPECT_RATIO = 4 / 3;
 
 export class ImageEdit extends React.Component {
