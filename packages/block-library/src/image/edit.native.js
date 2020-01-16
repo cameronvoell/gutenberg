@@ -11,9 +11,6 @@ import {
 } from 'react-native-gutenberg-bridge';
 import { isEmpty, map } from 'lodash';
 
-/**
- * WordPress dependencies
- */
 import {
 	TextControl,
 	ToggleControl,
